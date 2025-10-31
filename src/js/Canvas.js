@@ -64,7 +64,7 @@ MD.Canvas = function(){
 
   function resize(w, h){
     const res = svgCanvas.setResolution(w, h);
-    if (!res) return $.alert("No content to fit to");
+    if (!res) return $.alert("無內容可符合");
     if (w === 'fit' || h === 'fit') state.set("canvasSize", res);
     $("#canvas_width").val(w);
     $("#canvas_height").val(h);

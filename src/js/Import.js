@@ -16,8 +16,8 @@ MD.Import = function(){
     var file = null;
     if (e.type === "drop") file = e.dataTransfer.files[0]
     else file = this.files[0];
-    if (!file) return $.alert("File not found");
-    if (file.type.indexOf("image") === -1) return $.alert("File is not image"); 
+    if (!file) return $.alert("找不到檔案");
+    if (file.type.indexOf("image") === -1) return $.alert("檔案不是圖片"); 
 
     //svg handing
     if(file.type.indexOf("svg") != -1) {
@@ -81,7 +81,7 @@ MD.Import = function(){
       editor.saveCanvas();
       state.set("canvasTitle", svgCanvas.getDocumentTitle());
     } else {
-      $.alert("Error: Unable to load SVG data", function() {
+      $.alert("錯誤：無法載入 SVG 資料", function() {
         callback(false);
       });
     }

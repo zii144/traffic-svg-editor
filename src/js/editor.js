@@ -10,7 +10,7 @@ MD.Editor = function(){
 
   function clear(){
     var dims = state.get("canvasSize");
-    $.confirm("<h4>Do you want to clear the drawing?</h4><p>This will also erase your undo history</p>", function(ok) {
+    $.confirm("<h4>您要清除繪圖嗎？</h4><p>這也會清除您的復原歷史記錄</p>", function(ok) {
       if(!ok) return;
       state.set("canvasMode", "select")
       svgCanvas.clear();
@@ -363,7 +363,7 @@ MD.Editor = function(){
         if(xhr.status != 404 && xhr.responseText) {
           editor.import.loadSvgString(xhr.responseText, cb);
         } else {
-          $.alert("Unable to load from URL" + ": \n"+err+'', cb);
+          $.alert("無法從網址載入：" + "\n"+err+'', cb);
         }
       }
     });

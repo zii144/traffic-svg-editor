@@ -6,9 +6,9 @@ const state = new State();
 editor.modal = {
   about: new MD.Modal({
     html: `
-      <h1>About this application</h1>
-      <p>Method Draw is a simple <a href="https://github.com/methodofaction/Method-Draw">open source</a> vector drawing application. Method Draw was forked from <a href="https://github.com/SVG-Edit/svgedit">SVG-Edit</a> several years ago with the goal of improving and modernizing the interface.</p>
-      <p>At this time (2021), the author (<a href="http://method.ac/writing">Mark MacKay</a>) is working on improving stability and improving the codebase, which contains a lot of legacy practices. The goal is to create a vector editor suitable for simple graphic design tasks.</p>
+      <h1>關於本應用程式</h1>
+      <p>Method Draw 是一個簡單的 <a href="https://github.com/methodofaction/Method-Draw">開源</a> 向量繪圖應用程式。Method Draw 多年前從 <a href="https://github.com/SVG-Edit/svgedit">SVG-Edit</a> 分支出來，目標是改進和現代化介面。</p>
+      <p>目前（2021），作者（<a href="http://method.ac/writing">Mark MacKay</a>）正在努力改進穩定性和程式碼品質，其中包含許多舊有的實作方式。目標是創造一個適合簡單平面設計任務的向量編輯器。</p>
       `
   }),
   source: new MD.Modal({
@@ -20,8 +20,8 @@ editor.modal = {
             <textarea id="svg_source_textarea" spellcheck="false"></textarea>
           </form>
           <div id="tool_source_back" class="toolbar_button">
-            <button id="tool_source_cancel" class="cancel">Cancel</button>
-            <button id="tool_source_save" class="ok">Apply Changes</button>
+            <button id="tool_source_cancel" class="cancel">取消</button>
+            <button id="tool_source_save" class="ok">套用變更</button>
           </div>
         </div>
     </div>`,
@@ -39,7 +39,7 @@ editor.modal = {
         }
 
         if (!svgCanvas.setSvgString($('#svg_source_textarea').val())) {
-          $.confirm("There were parsing errors in your SVG source.\nRevert back to original SVG source?", function(ok) {
+          $.confirm("您的 SVG 原始碼中有解析錯誤。\n還原回原始的 SVG 原始碼？", function(ok) {
             if(!ok) return false;
             saveChanges();
           });
@@ -54,9 +54,9 @@ editor.modal = {
   }),
   configure: new MD.Modal({
     html: `
-      <h1>Configuration</h1>
+      <h1>設定</h1>
       <div id="configuration">
-        <button class="warning">Erase all data</button>
+        <button class="warning">清除所有資料</button>
         </div>
       </div>`,
     js: function(el){
@@ -68,15 +68,15 @@ editor.modal = {
   }),
   donate: new MD.Modal({
     html: `
-      <h1>Donate</h1>
+      <h1>贊助</h1>
       <p>
-        Method Draw relies on your generous donations for continued development.
-        <a href="https://method.ac/donate/">Donate now</a> if you find this application useful.
+        Method Draw 依靠您慷慨的贊助來持續開發。
+        如果您覺得這個應用程式有用，請立即 <a href="https://method.ac/donate/">贊助</a>。
       </p>`
   }),
   shortcuts: new MD.Modal({
     html: `
-      <h1>Shortcuts</h1>
+      <h1>快捷鍵</h1>
       <div id="shortcuts"></div>`,
     js: function(el){
       el.children[0].classList.add("modal-item-wide");

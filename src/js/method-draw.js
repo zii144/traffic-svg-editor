@@ -293,7 +293,7 @@ window.methodDraw = function() {
       var val = el.value * multiplier;
       var valid = svgedit.units.isValidUnit(attr, val, selectedElement);
       if(!valid) {
-        $.alert("Invalid value given");
+        $.alert("提供無效值");
         el.value = selectedElement.getAttribute(attr);
         return false;
       }
@@ -1356,7 +1356,7 @@ window.methodDraw = function() {
     var h = height.val()
     
     if(w != "fit" && !svgedit.units.isValidUnit('width', w)) {
-      $.alert("Invalid value given");
+      $.alert("提供無效值");
       width.parent().addClass('error');
       return false;
     }
@@ -1364,13 +1364,13 @@ window.methodDraw = function() {
     width.parent().removeClass('error');
 
     if(h != "fit" && !svgedit.units.isValidUnit('height', h)) {
-      $.alert("Invalid value given");
+      $.alert("提供無效值");
       height.parent().addClass('error');
       return false;
     } 
     height.parent().removeClass('error');
     if(!svgCanvas.setResolution(w, h)) {
-      $.alert("No content to fit to");
+      $.alert("無內容可符合");
       var dims = svgCanvas.getResolution()
       width.val(dims.w)
       height.val(dims.h)
@@ -2080,7 +2080,7 @@ window.methodDraw = function() {
     if(success) {
       callback(true);
     } else {
-      $.alert("Error: Unable to load SVG data", function() {
+      $.alert("錯誤：無法載入 SVG 資料", function() {
         callback(false);
       });
     }
@@ -2125,7 +2125,7 @@ window.methodDraw = function() {
           if(xhr.status != 404 && xhr.responseText) {
             loadSvgString(xhr.responseText, cb);
           } else {
-            $.alert("Unable to load from URL" + ": \n"+err+'', cb);
+            $.alert("無法從網址載入：" + "\n"+err+'', cb);
           }
         }
       });
